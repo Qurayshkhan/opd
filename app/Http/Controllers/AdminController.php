@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DepartmentService;
 use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
+    protected $deparmentService;
+    public function __construct(DepartmentService $deparmentService)
+    {
+        $this->deparmentService = $deparmentService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,10 +20,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
         return view('admin.index');
     }
-
+    public function departmentView()
+    {
+        $departments = $this->deparmentService->departments();
+        return view('admin.department', compact('departments'));
+    }
     /**
      * Show the form for creating a new resource.
      *

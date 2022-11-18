@@ -29,4 +29,8 @@ Route::group(['prefix'=>'admin'], function(){
 
     Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
+
+    Route::get('/admin-departments', [AdminController::class, 'departmentView'])->name('admin.depatments');
+
+
 });

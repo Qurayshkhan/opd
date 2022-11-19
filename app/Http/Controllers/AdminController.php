@@ -25,7 +25,14 @@ class AdminController extends Controller
     public function departmentView()
     {
         $departments = $this->deparmentService->departments();
-        return view('admin.departments.department', compact('departments'));
+        $rooms = $this->deparmentService->rooms();
+        return view('admin.departments.department', compact('departments', 'rooms'));
+    }
+    public function roomView()
+    {
+        $rooms = $this->deparmentService->rooms();
+        $departments = $this->deparmentService->departments();
+        return view('admin.rooms.rooms', compact('rooms', 'departments'));
     }
     /**
      * Show the form for creating a new resource.
@@ -47,6 +54,13 @@ class AdminController extends Controller
     {
         $data = $request->all();
         return $this->deparmentService->departmentStore($data);
+
+        // return response()->json();
+    }
+    public function roomstore(Request $request)
+    {
+        $data = $request->all();
+        return $this->deparmentService->roomStore($data);
 
         // return response()->json();
     }

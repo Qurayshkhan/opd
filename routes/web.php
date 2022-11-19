@@ -28,5 +28,7 @@ Route::get('/', function(){
 Route::group(['prefix'=>'admin'], function(){
 
     Route::get('/admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin-departments', [AdminController::class, 'departmentView'])->name('admin.depatments');
+    Route::post('/admin-department-store', [AdminController::class, 'store'])->name('admin.department.store');
 
 });

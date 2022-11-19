@@ -1,11 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
-use Database\Seeders\DepartmentSeedr;
 use App\Models\Department;
-
 class DepartmentSeeder extends Seeder
 {
     /**

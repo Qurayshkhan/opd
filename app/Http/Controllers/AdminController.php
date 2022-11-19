@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function departmentView()
     {
         $departments = $this->deparmentService->departments();
-        return view('admin.department', compact('departments'));
+        return view('admin.departments.department', compact('departments'));
     }
     /**
      * Show the form for creating a new resource.
@@ -45,7 +45,10 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        return $this->deparmentService->departmentStore($data);
+
+        // return response()->json();
     }
 
     /**
@@ -67,7 +70,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        //74/*
     }
 
     /**

@@ -19,4 +19,20 @@ class DepartmentService {
 
     }
 
+    public function departmentStore($data){
+
+        $data = [
+            'id' => $data['id'],
+            'name' => $data['name'],
+        ];
+        if ($data['id']) {
+            $this->deparmentRepository->updateCreate($data);
+            return "Department update successfully";
+        }else{
+            $this->deparmentRepository->updateCreate($data);
+            return "Department store successfully";
+        }
+
+    }
+
     }

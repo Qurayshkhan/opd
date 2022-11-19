@@ -17,4 +17,13 @@ class DepartmentRepository {
 
     }
 
+    public function updateCreate($data)
+    {
+         return $this->department->updateOrCreate(
+            ['id' => $data['id']],
+            $data
+        );
+
+    }
+
 }

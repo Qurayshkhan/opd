@@ -13,15 +13,18 @@
     <title>OPD-Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{asset('admin_side_assets')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin_side_assets') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+        type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('admin_side_assets')}}/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="{{asset('admin_side_assets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{{ asset('admin_side_assets') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('admin_side_assets') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.css"
+        integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -69,9 +72,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">OPD Components:</h6>
-                        <a class="collapse-item" href="{{route('admin.depatments')}}">Departments</a>
+                        <a class="collapse-item" href="{{ route('admin.depatments') }}">Departments</a>
+                        <a class="collapse-item" href="{{ route('admin.side.room.list') }}">Rooms</a>
                         <a class="collapse-item" href="">Doctors</a>
-                        <a class="collapse-item" href="">Rooms</a>
                     </div>
                 </div>
             </li>
@@ -170,7 +173,8 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <span class="font-weight-bold">A new monthly report is ready to
+                                            download!</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -195,7 +199,8 @@
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All
+                                    Alerts</a>
                             </div>
                         </li>
 
@@ -215,7 +220,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('admin_side_assets')}}/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -227,7 +233,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('admin_side_assets')}}/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -239,19 +246,22 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('admin_side_assets')}}/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        <div class="text-truncate">Last month's report looks great, I am very happy
+                                            with
                                             the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{asset('admin_side_assets')}}/https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('admin_side_assets') }}/https://source.unsplash.com/Mv9hjnEUHR4/60x60"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -261,7 +271,8 @@
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
+                                    Messages</a>
                             </div>
                         </li>
 
@@ -271,9 +282,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-dark">{{ auth()->user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{asset('admin_side_assets')}}/img/undraw_profile.svg">
+                                    src="{{ asset('admin_side_assets') }}/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -291,10 +302,16 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href=href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
@@ -315,8 +332,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Our Doctors</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{\App\Helpers\OpdHelperService::counts('doctors')}}
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -333,11 +352,13 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Users</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{\App\Helpers\OpdHelperService::counts('users')}}
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -350,23 +371,17 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Rooms
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Helpers\OpdHelperService::counts('rooms')}}</div>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-hotel fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -380,11 +395,13 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                Departments</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {{\App\Helpers\OpdHelperService::counts('departments')}}
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-building fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -396,7 +413,7 @@
 
                     <div class="row">
 
-                    @yield('content')
+                        @yield('content')
 
                     </div>
 
@@ -420,8 +437,8 @@
                         <span>Copyright &copy; Your OPD
 
                             @php
-                                 $date =  Date('Y');
-                                 echo $date;
+                                $date = Date('Y');
+                                echo $date;
                             @endphp
                         </span>
                     </div>
@@ -461,19 +478,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('admin_side_assets')}}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{asset('admin_side_assets')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('admin_side_assets') }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ asset('admin_side_assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('admin_side_assets')}}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('admin_side_assets') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('admin_side_assets')}}/js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('admin_side_assets') }}/js/sb-admin-2.min.js"></script>
 
 
-    <script src="{{asset('admin_side_assets')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('admin_side_assets')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.js" integrity="sha512-npNAZmgci8XSVsrc4kSwsbKovbwBU0r9Csm8n3D+g9x0Z08kNuKOuPYlNzo9LPFYXaATPfWRtaCkoOcrCHvqGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('admin_side_assets') }}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('admin_side_assets') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.js"
+        integrity="sha512-npNAZmgci8XSVsrc4kSwsbKovbwBU0r9Csm8n3D+g9x0Z08kNuKOuPYlNzo9LPFYXaATPfWRtaCkoOcrCHvqGg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('script')
 </body>
 

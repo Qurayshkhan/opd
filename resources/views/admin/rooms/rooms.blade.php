@@ -6,30 +6,33 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Departments</h6>
-                    <button class="btn btn-success" class="btn btn-primary" data-toggle="modal" data-target="#departmentModal"
-                        id="addDepartment">Add Department</button>
+                    <h6 class="m-0 font-weight-bold text-primary">Rooms</h6>
+                    <button class="btn btn-success" class="btn btn-primary" data-toggle="modal" data-target="#roomModal"
+                        id="addRoom">Add Room</button>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="department" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="room" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Department</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($departments as $department)
+                            @foreach ($rooms as $room)
+
                                 <tr>
-                                    <td>{{ $department->name }}</td>
-                                    <td>{{ $department->created_at }}</td>
+                                    <td>{{ $room->name }}</td>
+                                    <td>{{ $room->department->name }}</td>
+                                    <td>{{ $room->created_at }}</td>
                                     <td>
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#departmentModal"
-                                            onclick="populateDepartment('{{ $department->id }}', '{{ $department->name }}')">Edit</button>
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#roomModal"
+                                            onclick="populateRoom('{{ $room->id }}', '{{ $room->name }}', {{$room->department->id}})">Edit</button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -42,11 +45,12 @@
         </div>
     </div>
     <script>
-        //Edit Department
-        let populateDepartment = (department_id, department_name) => {
-            $('#departmentTitle').html("Edit Department");
-            $('#departmentId').val(department_id);
-            $('#departmentName').val(department_name);
+        //Edit Room
+        let populateRoom = (room_id, room_name, department_id) => {
+            $('#roomTitle').html("Edit Room");
+            $('#roomId').val(room_id);
+            $('#roomName').val(room_name);
+            $('#selectDepartmentId').val(department_id).trigger('change');
         }
     </script>
 @endsection
@@ -56,36 +60,37 @@
 
 
 
-            //initilize department dataTable
+            //initilize room dataTable
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $('#department').DataTable();
+            $('#room').DataTable();
 
 
             //Modal Title
-            $('#addDepartment').click(function() {
-                $('#departmentTitle').html("Add Department");
-                $('#department-form')[0].reset();
+            $('#addRoom').click(function() {
+                $('#roomTitle').html("Add Room");
+                $('#room-form')[0].reset();
+
             });
 
 
-            // Add Department
-            $('#department-form').submit(function(e) {
+            // Add rooms
+            $('#room-form').submit(function(e) {
                 e.preventDefault();
-                let form = $('#department-form').serialize();
-                let button = $('#departmentSpinner');
+                let form = $('#room-form').serialize();
+                let button = $('#roomSpinner');
                 button.addClass('spinner-border');
                 $.ajax({
                     type: 'POST',
                     data: form,
-                    url: "{{ route('admin.department.store') }}",
+                    url: "{{route('admin.room.store')}}",
                     success: function(response) {
                         button.removeClass('spinner-border');
-                        $('#department-form')[0].reset();
-                        $('#departmentModal').modal('hide');
+                        $('#room-form')[0].reset();
+                        $('#roomModal').modal('hide');
                         Swal.fire({
                             icon: 'success',
                             title: response,

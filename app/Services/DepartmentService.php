@@ -23,6 +23,17 @@ class DepartmentService {
         return $this->deparmentRepository->getListRooms();
 
     }
+    public function doctors()
+    {
+        return $this->deparmentRepository->getListDoctors();
+
+    }
+    public function findRoomByDepartment($departmentId)
+    {
+
+        return $this->deparmentRepository->getListRoomByDepartment($departmentId);
+
+    }
 
     public function departmentStore($data){
 
@@ -52,6 +63,24 @@ class DepartmentService {
         }else{
             $this->deparmentRepository->updateCreateRoom($data);
             return "Room store successfully";
+        }
+
+    }
+    public function doctorStore($data){
+
+        $data = [
+            "id" => $data['id'],
+            "name" => $data['name'],
+            "email" => $data['email'],
+            "password" => $data['password'],
+            "room_id" => $data['room_id'],
+        ];
+        if ($data['id']) {
+            $this->deparmentRepository->updateCreateDoctor($data);
+            return "Doctor update successfully";
+        }else{
+            $this->deparmentRepository->updateCreateDoctor($data);
+            return "Doctor store successfully";
         }
 
     }

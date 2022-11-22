@@ -74,7 +74,7 @@
                         <h6 class="collapse-header">OPD Components:</h6>
                         <a class="collapse-item" href="{{ route('admin.depatments') }}">Departments</a>
                         <a class="collapse-item" href="{{ route('admin.side.room.list') }}">Rooms</a>
-                        <a class="collapse-item" href="">Doctors</a>
+                        <a class="collapse-item" href="{{route('admin.side.doctor.list')}}">Doctors</a>
                     </div>
                 </div>
             </li>
@@ -221,7 +221,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_1.svg"
+                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -261,7 +261,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                            src="{{ asset('admin_side_assets') }}/https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>

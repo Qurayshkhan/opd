@@ -16,53 +16,14 @@ class DoctorSeeder extends Seeder
     {
         Doctor::firstOrCreate(
             [
-                'name' => 'Hassan khan',
+                'user_id' => 2,
             ],
             [
-                'name' => 'Hassan khan',
+                'user_id' => 2,
                 'room_id' => 1,
             ]
 
         );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'Saira Ansari',
-            ],
-            [
-                'name' => 'Saria Ansari',
-                'room_id' => 2,
-            ]
 
-        );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'Wajiha Ansari',
-            ],
-            [
-                'name' => 'Wajiha Ansari',
-                'room_id' => 3,
-            ]
-
-        );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'MIR Salman Khan',
-            ],
-            [
-                'name' => 'MIR Salman Khan',
-                'room_id' => 4,
-            ]
-
-        );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'Rashid Gujjar',
-            ],
-            [
-                'name' => 'Rashid Gujjar',
-                'room_id' => 5,
-            ]
-
-        );
     }
 }

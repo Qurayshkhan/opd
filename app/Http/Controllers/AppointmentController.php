@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Doctor;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 
-class DepartmentController extends Controller
+class AppointmentController extends Controller
 {
-
-
+    protected $departmentService;
+    public function __construct(DepartmentService $departmentService)
+    {
+        $this->departmentService = $departmentService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +21,22 @@ class DepartmentController extends Controller
      */
     public function index()
     {
+        $departments = $this->departmentService->departments();
+        return view('patients.appintment', compact('departments'));
+    }
 
-        // return view('patients.home');
+    public function getDoctor($id)
+    {
+
+        // $departments = $this->departmentService->departments();
+        //return
+          $doctor = Doctor::where('room_id', $id)->with('user', 'room')->first();
+
+          return $result = [
+              $doctor,
+          ];
+
+
     }
 
     /**
@@ -44,10 +63,10 @@ class DepartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Department $department)
+    public function show(Appointment $appointment)
     {
         //
     }
@@ -55,10 +74,10 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit(Appointment $appointment)
     {
         //
     }
@@ -67,10 +86,10 @@ class DepartmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, Appointment $appointment)
     {
         //
     }
@@ -78,10 +97,10 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Department  $department
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy(Appointment $appointment)
     {
         //
     }

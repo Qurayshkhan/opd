@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DepartmentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', function(){
 
-        return view('patients.index');
+        return view('patients.home');
 
 });
 
@@ -43,4 +46,11 @@ Route::group(['prefix'=>'admin', 'middleware' => ['auth']], function(){
     Route::post('/admin-doctor-store', [AdminController::class, 'doctorStore'])->name('admin.doctor.store');
 
     Route::get('/admin-get-room-by-department/{departmentId}', [AdminController::class, 'findRoomByDepartment'])->name('admin.get.room.by.department');
+});
+
+Route::group(['prefix'=>'patient', 'middleware' => ['auth']], function(){
+
+    Route::get('/appointment',[AppointmentController::class, 'index'])->name('patient.appointment');
+    Route::get('/patient-get-doctor/{id}',[AppointmentController::class, 'getDoctor'])->name('patient.get.doctor');
+
 });

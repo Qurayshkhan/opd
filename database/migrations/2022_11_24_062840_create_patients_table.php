@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppointmentsTable extends Migration
+class CreatePatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,12 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Doctor::class)->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->longText('message')->nullable();
-            $table->string('status')->nullable();
+            $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('phone')->nullable();
+            $table->string('cnic')->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('patients');
     }
 }

@@ -22,21 +22,17 @@ class AppointmentController extends Controller
     public function index()
     {
         $departments = $this->departmentService->departments();
-        return view('patients.appintment', compact('departments'));
+        $appointments = $this->departmentService->appointments();
+        return view('patients.appintment', compact('departments', 'appointments'));
     }
 
     public function getDoctor($id)
     {
 
-        // $departments = $this->departmentService->departments();
-        //return
-          $doctor = Doctor::where('room_id', $id)->with('user', 'room')->first();
-
-          return $result = [
-              $doctor,
-          ];
-
-
+        $doctor = $this->departmentService->findDoctorByRoom($id);
+        return $result = [
+            $doctor,
+        ];
     }
 
     /**
@@ -57,7 +53,9 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $this->departmentService->appointmentStore($data);
+        return redirect()->back()->with('success', 'Your appointment submit successfully');
     }
 
     /**

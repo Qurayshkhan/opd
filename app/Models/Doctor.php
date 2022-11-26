@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Doctor extends Model
 {
     use HasFactory;
@@ -19,6 +20,13 @@ class Doctor extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+
 
     // public function getCreatedAtAttribute($date)
     // {

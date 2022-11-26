@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\Room;
@@ -11,15 +12,16 @@ use Illuminate\Support\Facades\Hash;
 class DepartmentRepository
 {
 
-    protected $department, $room, $doctor, $user;
+    protected $department, $room, $doctor, $user, $appointment;
 
-    public function __construct(Department $department, Room $room, Doctor $doctor, User $user)
+    public function __construct(Department $department, Room $room, Doctor $doctor, User $user, Appointment $appointment)
 
     {
         $this->department = $department;
         $this->room = $room;
         $this->doctor = $doctor;
         $this->user = $user;
+        $this->appointment = $appointment;
     }
     public function getListDepartments()
     {
@@ -36,6 +38,17 @@ class DepartmentRepository
     public function getListRoomByDepartment($departmentId)
     {
         return $this->room->where('department_id', $departmentId)->get();
+    }
+
+    public function getdoctorListByRoom($id)
+    {
+       return $this->doctor->where('room_id', $id)->with('user', 'room')->first();
+
+    }
+
+    public function getMyAppointmentList($id)
+    {
+       return $this->appointment->where('patient_id', $id)->with('patient', 'doctor')->get();
     }
 
     public function updateCreate($data)
@@ -76,5 +89,10 @@ class DepartmentRepository
             $doctorData
         );
         return;
+    }
+
+    public function createAppointment($data)
+    {
+        return $this->appointment->create($data);
     }
 }

@@ -35,6 +35,17 @@ class DepartmentService {
 
     }
 
+    public function findDoctorByRoom($roomId)
+    {
+        return $this->deparmentRepository->getdoctorListByRoom($roomId);
+    }
+
+    public function appointments()
+    {
+        $id = auth()->user()->id;
+        return $this->deparmentRepository->getMyAppointmentList($id);
+    }
+
     public function departmentStore($data){
 
         $data = [
@@ -83,6 +94,19 @@ class DepartmentService {
             return "Doctor store successfully";
         }
 
+    }
+
+    public function appointmentStore($data)
+    {
+        $userId = auth()->user()->id;
+
+        $data = [
+            'patient_id' => $userId,
+             'doctor_id' => $data['doctor_id'],
+             'message' => $data['message']
+        ];
+
+        return $this->deparmentRepository->createAppointment($data);
     }
 
     }

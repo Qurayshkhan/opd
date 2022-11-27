@@ -37,7 +37,7 @@
     <div class="header_section">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="logo"><a href="{{ route('home') }}">
-                    <h1>OPD</h1>
+
                 </a></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="{{route('patient.appointment')}}">Contact Us</a>
                             </li>
                         @endauth
                     @endif
@@ -109,33 +109,11 @@
                                     <h1 class="banner_taital">Health <br><span style="color: #151515;">Care</span></h1>
                                     <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
                                     <div class="btn_main">
-                                        <div class="more_bt"><a href="#">Contact Now</a></div>
-                                        <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                                        <div class="more_bt"><a href="{{route('patient.appointment')}}">Contact Now</a></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/img-1.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="banner_section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1 class="banner_taital">Health <br><span style="color: #151515;">Care</span>
-                                    </h1>
-                                    <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
-                                    <div class="btn_main">
-                                        <div class="more_bt"><a href="#">Contact Now</a></div>
-                                        <div class="contact_bt"><a href="#">Get A Quote</a></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/img-1.png">
+                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/greenbanner1.png" style="height: 500px">
                                     </div>
                                 </div>
                             </div>
@@ -150,13 +128,28 @@
                                     <h1 class="banner_taital">Health <br><span style="color: #151515;">Care</span>
                                     </h1>
                                     <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
-                                    <div class="btn_main">
-                                        <div class="more_bt"><a href="#">Contact Now</a></div>
-                                        <div class="contact_bt"><a href="#">Get A Quote</a></div>
-                                    </div>
+
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/img-1.png">
+                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/greenbanner2.png" style="height: 500px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="banner_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="banner_taital">Health <br><span style="color: #151515;">Care</span>
+                                    </h1>
+                                    <p class="banner_text">There are many variations of passages of Lorem Ipsum</p>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="image_1"><img src="{{ asset('user_side_assets') }}/images/img-1.png" style="height: 500px">
                                     </div>
                                 </div>
                             </div>
@@ -177,8 +170,7 @@
     <div class="health_section layout_padding">
         <div class="container">
             <h1 class="health_taital">Best Of Health care for you</h1>
-            <p class="health_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+            <p class="health_text">Time and health are two precious assets that we don't recognize and appreciate until they have been depleted</p>
             <div class="health_section layout_padding">
                 <div class="row">
                     <div class="col-sm-7">
@@ -206,8 +198,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="getquote_bt_1"><a href="#">Read More <span><img
-                                src="{{ asset('user_side_assets') }}/images/right-arrow.png"></span></a></div>
+
             </div>
         </div>
     </div>
@@ -218,8 +209,7 @@
             <div class="knowledge_main">
                 <div class="left_main">
                     <h1 class="knowledge_taital">Knowledge of center</h1>
-                    <p class="knowledge_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="knowledge_text">“The chapter you are learning today is going to save someone’s life tomorrow. Pay attention.”</p>
                 </div>
                 <div class="right_main">
                     <div class="play_icon"><a href="#"><img
@@ -256,8 +246,6 @@
                     </div>
                 </div>
             </div>
-            <div class="getquote_bt"><a href="#">Get A Quote <span><img
-                            src="{{ asset('user_side_assets') }}/images/right-arrow.png"></span></a></div>
         </div>
     </div>
     <!-- news section end -->
@@ -272,7 +260,7 @@
                         <p class="client_text">It is a long established fact that a reader will be distracted </p>
                         <div class="client_section_2">
                             <div class="client_left">
-                                <div><img src="{{ asset('user_side_assets') }}/images/client-img.png"
+                                <div><img src="{{ asset('user_side_assets') }}/images/client-2.png"
                                         class="client_img"></div>
                             </div>
                             <div class="client_right">
@@ -292,7 +280,7 @@
                         <p class="client_text">It is a long established fact that a reader will be distracted </p>
                         <div class="client_section_2">
                             <div class="client_left">
-                                <div><img src="{{ asset('user_side_assets') }}/images/client-img.png"
+                                <div><img src="{{ asset('user_side_assets') }}/images/client-3.png"
                                         class="client_img"></div>
                             </div>
                             <div class="client_right">
@@ -340,44 +328,21 @@
     <div class="footer_section layout_padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer_logo"><a href="index.html"><img
-                                src="{{ asset('user_side_assets') }}/images/footer-logo.png"></a></div>
+                <div class="col-lg-6 col-sm-6">
+
                     <h1 class="adderss_text">Contact Us</h1>
                     <div class="map_icon"><img src="{{ asset('user_side_assets') }}/images/map-icon.png"><span
-                            class="paddlin_left_0">Page when looking at its</span></div>
+                            class="paddlin_left_0">Bagbanpura Lahore cantt</span></div>
                     <div class="map_icon"><img src="{{ asset('user_side_assets') }}/images/call-icon.png"><span
-                            class="paddlin_left_0">+7586656566</span></div>
-                    <div class="map_icon"><img src="{{ asset('user_side_assets') }}/images/mail-icon.png"><span
-                            class="paddlin_left_0">volim@gmail.com</span></div>
+                            class="paddlin_left_0">+922343242</span></div>
+                    <div class="map_icon"><img src="{{ asset('user_side_assets') }}/images/mail-icon.png"><span class="paddlin_left_0">opd@gmail.com</span></div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <h1 class="adderss_text">Doctors</h1>
-                    <div class="hiphop_text_1">There are many variations of passages of Lorem Ipsum available, but the
+                    <div class="hiphop_text_1">There are many variations of passages of  available, but the
                         majority have suffered alteration in some form, by injected humour,</div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h1 class="adderss_text">Useful Links</h1>
-                    <div class="Useful_text">There are many variations of passages of Lorem Ipsum available, but the
-                        majority have suffered ,</div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <h1 class="adderss_text">Newsletter</h1>
-                    <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
-                    <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                    <div class="social_icon">
-                        <ul>
-                            <li><a href="#"><img src="{{ asset('user_side_assets') }}/images/fb-icon.png"></a>
-                            </li>
-                            <li><a href="#"><img
-                                        src="{{ asset('user_side_assets') }}/images/twitter-icon.png"></a></li>
-                            <li><a href="#"><img
-                                        src="{{ asset('user_side_assets') }}/images/linkedin-icon.png"></a></li>
-                            <li><a href="#"><img
-                                        src="{{ asset('user_side_assets') }}/images/instagram-icon.png"></a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -385,8 +350,7 @@
     <!-- copyright section start -->
     <div class="copyright_section">
         <div class="container">
-            <p class="copyright_text">2019 All Rights Reserved. Design by <a href="https://html.design">Free html
-                    Templates</a></p>
+            <p class="copyright_text">2022 All Rights Reserved</p>
         </div>
     </div>
     <!-- copyright section end -->

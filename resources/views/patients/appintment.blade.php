@@ -44,6 +44,7 @@
                     <th scope="col">Room</th>
                     <th scope="col">Department</th>
                     <th scope="col">Message</th>
+                    <th scope="col">Created at</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -54,9 +55,17 @@
                         <td>{{ $appointment->doctor->user->name ?? '' }}</td>
                         <td>{{ $appointment->doctor->room->name ?? '' }}</td>
                         <td>{{ $appointment->doctor->room->department->name ?? '' }}</td>
-                        <td>{{ $appointment->message }}</td>
                         <td>
-                            {{ $appointment->status }}
+                            <div style="word-wrap: break-word; width:300px">
+                                {{ $appointment->message }}
+
+                            </div>
+                        </td>
+                        <td>
+                            {{ $appointment->created_at }}
+                        </td>
+                        <td>
+                             {{ $appointment->status }}
                         </td>
                     </tr>
                 @endforeach

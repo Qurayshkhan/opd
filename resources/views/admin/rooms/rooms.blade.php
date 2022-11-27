@@ -104,6 +104,9 @@
                     error: function(error) {
                         button.removeClass('spinner-border');
                         console.log(error);
+                        $.each(error.responseJSON.errors, function(key, value){
+                            $('.error_' + key).html(value);
+                        });
                     }
                 });
             });

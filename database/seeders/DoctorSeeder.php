@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Patient;
 use Illuminate\Database\Seeder;
 
 class DoctorSeeder extends Seeder
@@ -16,52 +18,38 @@ class DoctorSeeder extends Seeder
     {
         Doctor::firstOrCreate(
             [
-                'name' => 'Hassan khan',
+                'id' => 1,
             ],
             [
-                'name' => 'Hassan khan',
+                'user_id' => 2,
                 'room_id' => 1,
             ]
 
         );
-        Doctor::firstOrCreate(
+        Patient::firstOrCreate(
             [
-                'name' => 'Saira Ansari',
+                'id' => 1,
             ],
             [
-                'name' => 'Saria Ansari',
-                'room_id' => 2,
+                'user_id' => 3,
+                'phone' => '122222121',
+                'cnic' => '323242342',
+                'gender' => 'male',
             ]
 
         );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'Wajiha Ansari',
-            ],
-            [
-                'name' => 'Wajiha Ansari',
-                'room_id' => 3,
-            ]
 
-        );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'MIR Salman Khan',
-            ],
-            [
-                'name' => 'MIR Salman Khan',
-                'room_id' => 4,
-            ]
+        Appointment::firstOrCreate(
 
-        );
-        Doctor::firstOrCreate(
-            [
-                'name' => 'Rashid Gujjar',
-            ],
-            [
-                'name' => 'Rashid Gujjar',
-                'room_id' => 5,
-            ]
+                [
+                    'id' => 1,
+                ],
+                [
+                    'patient_id' => 3,
+                    'doctor_id' => 2,
+                    'message' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium nihil placeat nesciunt aperiam molestiae repellendus, facilis nisi esse minus tenetur quos sint distinctio rem repudiandae atque. Blanditiis quasi laboriosam atque!',
+
+                ]
 
         );
     }

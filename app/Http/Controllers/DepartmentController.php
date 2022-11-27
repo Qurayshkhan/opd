@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
+use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+
+        // return view('patients.home');
     }
 
     /**

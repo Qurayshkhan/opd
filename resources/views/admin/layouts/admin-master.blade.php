@@ -59,7 +59,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Admin
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -71,10 +71,10 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">OPD Components:</h6>
+                        <h6 class="collapse-header">Admin Components:</h6>
                         <a class="collapse-item" href="{{ route('admin.depatments') }}">Departments</a>
                         <a class="collapse-item" href="{{ route('admin.side.room.list') }}">Rooms</a>
-                        <a class="collapse-item" href="">Doctors</a>
+                        <a class="collapse-item" href="{{ route('admin.side.doctor.list') }}">Doctors</a>
                     </div>
                 </div>
             </li>
@@ -86,13 +86,21 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Others
+                Doctor
             </div>
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Appointment</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Doctor Components:</h6>
+                        <a class="collapse-item" href="{{route('doctor.appointment.list')}}">Appointments</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -221,7 +229,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_1.svg"
+                                            src="{{ asset('admin_side_assets') }}/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -261,8 +269,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                            src="{{ asset('admin_side_assets') }}/https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
+                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
@@ -334,7 +341,7 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Our Doctors</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                {{\App\Helpers\OpdHelperService::counts('doctors')}}
+                                                {{ \App\Helpers\OpdHelperService::counts('doctors') }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -354,7 +361,7 @@
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Users</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                {{\App\Helpers\OpdHelperService::counts('users')}}
+                                                {{ \App\Helpers\OpdHelperService::counts('users') }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -375,7 +382,8 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Helpers\OpdHelperService::counts('rooms')}}</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        {{ \App\Helpers\OpdHelperService::counts('rooms') }}</div>
                                                 </div>
 
                                             </div>
@@ -397,7 +405,7 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Departments</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                {{\App\Helpers\OpdHelperService::counts('departments')}}
+                                                {{ \App\Helpers\OpdHelperService::counts('departments') }}
                                             </div>
                                         </div>
                                         <div class="col-auto">

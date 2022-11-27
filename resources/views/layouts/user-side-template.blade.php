@@ -45,7 +45,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto" style="
-            margin-left: 327px;
+            margin-left: 200px;
         ">
                     @if (Route::has('login'))
                         @auth
@@ -54,6 +54,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('patient.appointment') }}">Appointment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('appointment.fee')}}">Account Book</a>
                             </li>
                         @else
                             <li class="nav-item active">

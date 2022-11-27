@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    protected $departmentService;
+    public function __construct(DepartmentService $departmentService)
+    {
+           $this->departmentService = $departmentService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $appointments = $this->departmentService->doctorappointments();
+        return view('doctor_appointment.doctor-appoinment-view', ['appointments' => $appointments]);
     }
 
     /**

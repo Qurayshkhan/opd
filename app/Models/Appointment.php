@@ -20,4 +20,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(Patient::class, 'patient_id', 'user_id');
     }
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

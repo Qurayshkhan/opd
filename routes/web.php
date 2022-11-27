@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,13 @@ Route::group(['prefix' => 'patient', 'middleware' => ['auth']], function () {
 
     Route::get('/appointment', [AppointmentController::class, 'index'])->name('patient.appointment');
     Route::get('/patient-get-doctor/{id}', [AppointmentController::class, 'getDoctor'])->name('patient.get.doctor');
-
     Route::post('/store-appointment', [AppointmentController::class, 'store'])->name('patient.appointment.store');
+    Route::get('/appointment-fee', [AppointmentController::class, 'appointmentFee'])->name('appointment.fee');
+    Route::post('/pay-appointment-fee', [AppointmentController::class, 'payAppointmentFee'])->name('patient.pay.appointment.fee');
+});
+Route::group(['prefix' => 'doctor', 'middleware' => ['auth']], function () {
+
+    Route::get('/get-appointment-list', [DoctorController::class, 'index'])->name('doctor.appointment.list');
+    Route::post('/appointment-approved/{id}', [AppointmentController::class, 'doctorApprovedAppointment'])->name('doctor.approve.appointment');
+    Route::post('/appointment-rejected/{id}', [AppointmentController::class, 'doctorRejectAppointment'])->name('doctor.rejected.appointment');
 });

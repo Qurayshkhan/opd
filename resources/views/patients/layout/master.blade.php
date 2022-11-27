@@ -12,6 +12,10 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.css"
+        integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>OPD</title>
 </head>
 
@@ -31,7 +35,9 @@
         <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.9/sweetalert2.min.js"
+        integrity="sha512-npNAZmgci8XSVsrc4kSwsbKovbwBU0r9Csm8n3D+g9x0Z08kNuKOuPYlNzo9LPFYXaATPfWRtaCkoOcrCHvqGg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
         @if (Session::has('success'))

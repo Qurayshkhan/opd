@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AppointmentRequest;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Services\DepartmentService;
@@ -44,6 +45,18 @@ class AppointmentController extends Controller
     {
         //
     }
+    public function appointmentFee()
+    {
+        $appointmentFees = $this->departmentService->userAppointmentFee();
+
+        return view('patients.appointment-fee', compact('appointmentFees'));
+    }
+
+    public function  payAppointmentFee(Request $request)
+    {
+        $data = $request->all();
+        return $this->departmentService->patientPayment($data);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,6 +69,17 @@ class AppointmentController extends Controller
         $data = $request->all();
         $this->departmentService->appointmentStore($data);
         return redirect()->back()->with('success', 'Your appointment submit successfully');
+    }
+
+    public function doctorApprovedAppointment(AppointmentRequest $request)
+    {
+        $data = $request->all();
+        return $this->departmentService->appointmentApproved($data);
+    }
+    public function doctorRejectAppointment(Request $request)
+    {
+        $data = $request->all();
+        return $this->departmentService->appointmentApproved($data);
     }
 
     /**

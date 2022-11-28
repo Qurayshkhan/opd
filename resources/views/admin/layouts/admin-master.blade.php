@@ -79,7 +79,11 @@
                 </div>
             </li>
 
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.transaction')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Transactions</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">

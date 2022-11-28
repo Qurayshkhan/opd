@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('/admin-doctor-store', [AdminController::class, 'doctorStore'])->name('admin.doctor.store');
 
     Route::get('/admin-get-room-by-department/{departmentId}', [AdminController::class, 'findRoomByDepartment'])->name('admin.get.room.by.department');
+    Route::get('/get-transaction', [AdminController::class, 'transactions'])->name('admin.transaction');
+
 });
 
 Route::group(['prefix' => 'patient', 'middleware' => ['auth']], function () {
@@ -62,3 +64,4 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['auth']], function () {
     Route::post('/appointment-approved/{id}', [AppointmentController::class, 'doctorApprovedAppointment'])->name('doctor.approve.appointment');
     Route::post('/appointment-rejected/{id}', [AppointmentController::class, 'doctorRejectAppointment'])->name('doctor.rejected.appointment');
 });
+

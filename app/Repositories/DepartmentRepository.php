@@ -152,4 +152,9 @@ class DepartmentRepository
         );
         return;
     }
+
+    public function getTransactionList()
+    {
+        return $this->payment->with('appointment')->get();
+    }
 }

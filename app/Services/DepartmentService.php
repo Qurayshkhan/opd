@@ -143,4 +143,9 @@ class DepartmentService
         $this->deparmentRepository->patientPayappointmentFee($data);
         return "Your payment successfully done";
     }
+
+    public function userTransactions()
+    {
+      return $this->deparmentRepository->getTransactionList();
+    }
 }

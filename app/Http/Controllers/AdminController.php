@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DepartmentRequest;
+use App\Http\Requests\PatientRequest;
 use App\Http\Requests\RoomRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\Patient;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
 
@@ -71,6 +73,19 @@ class AdminController extends Controller
     {
        $transactions =  $this->deparmentService->userTransactions();
        return view('admin.transactions.transaction', compact('transactions'));
+    }
+
+    public function patients()
+    {
+        $patients = $this->deparmentService->patientQoue();
+         return view('admin.transactions.patients', compact('patients'));
+    }
+
+    public function patientUpdate(PatientRequest $request)
+    {
+        $data = $request->all();
+        $this->deparmentService->patientQoueUpdate($data);
+        return "Update Patient Successfully";
     }
 
 }

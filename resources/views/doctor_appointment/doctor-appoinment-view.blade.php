@@ -5,12 +5,12 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Doctors</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Eximend un-Eximed Patient</h6>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="appointmentTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -85,6 +85,7 @@
         }
 
         $(document).ready(function() {
+            $('#appointmentTable').DataTable();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

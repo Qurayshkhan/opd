@@ -148,4 +148,20 @@ class DepartmentService
     {
       return $this->deparmentRepository->getTransactionList();
     }
+    public function patientQoue()
+    {
+        return $this->deparmentRepository->patientQoue();
+    }
+    public function patientQoueUpdate($data)
+    {
+        $data = [
+            'user_id' => $data['id'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'cnic' => $data['cnic'],
+            'gender' => $data['gender'],
+        ];
+        return $this->deparmentRepository->updatePatient($data);
+    }
 }

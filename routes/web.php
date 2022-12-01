@@ -47,6 +47,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/admin-get-room-by-department/{departmentId}', [AdminController::class, 'findRoomByDepartment'])->name('admin.get.room.by.department');
     Route::get('/get-transaction', [AdminController::class, 'transactions'])->name('admin.transaction');
+    Route::get('patient-qoue', [AdminController::class, 'patients'])->name('admin.patient.qoue');
+    Route::post('patient-qoue-update', [AdminController::class, 'patientUpdate'])->name('admin.patient.qoue.update');
 
 });
 

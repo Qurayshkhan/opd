@@ -37,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -80,9 +80,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.transaction')}}">
+                <a class="nav-link" href="{{ route('admin.transaction') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Transactions</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.patient.qoue')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Patients</span></a>
             </li>
 
             <!-- Divider -->
@@ -102,7 +107,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Doctor Components:</h6>
-                        <a class="collapse-item" href="{{route('doctor.appointment.list')}}">Appointments</a>
+                        <a class="collapse-item" href="{{ route('doctor.appointment.list') }}">Eximed-Un-Eximed</a>
                     </div>
                 </div>
             </li>

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Doctor;
+use App\Models\Patient;
 use App\Models\Payment;
 use App\Models\Room;
 use App\Models\User;
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Hash;
 class DepartmentRepository
 {
 
-    protected $department, $room, $doctor, $user, $appointment, $payment;
+    protected $department, $room, $doctor, $user, $appointment, $payment, $patient;
 
-    public function __construct(Department $department, Room $room, Doctor $doctor, User $user, Appointment $appointment, Payment $payment)
+    public function __construct(Department $department, Room $room, Doctor $doctor, User $user, Appointment $appointment, Payment $payment, Patient $patient)
 
     {
         $this->department = $department;
@@ -24,6 +25,7 @@ class DepartmentRepository
         $this->user = $user;
         $this->appointment = $appointment;
         $this->payment = $payment;
+        $this->patient = $patient;
     }
     public function getListDepartments()
     {
@@ -58,6 +60,11 @@ class DepartmentRepository
     public function getDoctorAppointmentList($id)
     {
         return $this->appointment->where('doctor_id', $id)->with('patient', 'doctor')->get();
+    }
+
+    public function patientQoue()
+    {
+        return $this->patient->with('user')->get();
     }
 
     public function updateCreate($data)
@@ -156,5 +163,29 @@ class DepartmentRepository
     public function getTransactionList()
     {
         return $this->payment->with('appointment')->get();
+    }
+
+    public function updatePatient($data)
+    {
+        $this->patient->updateOrCreate(
+            ['user_id' => $data['user_id']],
+            [
+                'phone' => $data['phone'],
+                'cnic' => $data['cnic'],
+                'gender' => $data['gender'],
+
+            ]
+        );
+
+        $this->user->updateOrCreate(
+            [
+                'id' => $data['user_id'],
+            ],
+            [
+                'name' => $data['name'],
+                'email' => $data['email']
+            ]
+        );
+        return;
     }
 }

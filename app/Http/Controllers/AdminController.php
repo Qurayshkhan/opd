@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DepartmentRequest;
 use App\Http\Requests\PatientRequest;
+use App\Http\Requests\RoleRequest;
 use App\Http\Requests\RoomRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Patient;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
-
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
@@ -42,7 +44,7 @@ class AdminController extends Controller
         $rooms = $this->deparmentService->rooms();
         $departments = $this->deparmentService->departments();
         $doctors = $this->deparmentService->doctors();
-        return view('admin.Doctors.doctors', compact('rooms', 'departments','doctors'));
+        return view('admin.Doctors.doctors', compact('rooms', 'departments', 'doctors'));
     }
 
     public function findRoomByDepartment($departmentId)
@@ -61,7 +63,6 @@ class AdminController extends Controller
     {
         $data = $request->all();
         return $this->deparmentService->departmentStore($data);
-
     }
     public function roomstore(RoomRequest $request)
     {
@@ -71,14 +72,14 @@ class AdminController extends Controller
 
     public function transactions()
     {
-       $transactions =  $this->deparmentService->userTransactions();
-       return view('admin.transactions.transaction', compact('transactions'));
+        $transactions =  $this->deparmentService->userTransactions();
+        return view('admin.transactions.transaction', compact('transactions'));
     }
 
     public function patients()
     {
         $patients = $this->deparmentService->patientQoue();
-         return view('admin.transactions.patients', compact('patients'));
+        return view('admin.transactions.patients', compact('patients'));
     }
 
     public function patientUpdate(PatientRequest $request)
@@ -88,4 +89,61 @@ class AdminController extends Controller
         return "Update Patient Successfully";
     }
 
+    public function getRoles()
+    {
+
+        $roles = Role::all();
+        return view('admin.User_managment.roles', compact('roles'));
+    }
+
+    public function getPermissions()
+    {
+        $permissions = Permission::all();
+        return view('admin.User_managment.permissions', compact('permissions'));
+    }
+
+    public function storeRoles(RoleRequest $request)
+    {
+
+        $data = $request->all();
+        if ($data['id'] != null) {
+            Role::updateOrCreate(
+                [
+                    'id' => $data['id'],
+                ],
+                $data
+            );
+            return "Update Role Successfully";
+        } else {
+            Role::updateOrCreate(
+                [
+                    'id' => $data['id'],
+                ],
+                $data
+            );
+            return "Add Role Successfully";
+        }
+    }
+    public function storePermission(Request $request)
+    {
+        $data = $request->all();
+        if ($data['id'] != null) {
+            Permission::updateOrCreate(
+                [
+                    'id' => $data['id'],
+                ],
+                $data
+            );
+            return "Update Permission Successfully";
+        } else {
+            Permission::updateOrCreate(
+                [
+                    'id' => $data['id'],
+                ],
+                $data
+            );
+            return "Add Permission Successfully";
+        }
+
+    }
 }

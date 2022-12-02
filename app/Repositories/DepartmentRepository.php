@@ -10,13 +10,14 @@ use App\Models\Payment;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class DepartmentRepository
 {
 
-    protected $department, $room, $doctor, $user, $appointment, $payment, $patient;
+    protected $department, $room, $doctor, $user, $appointment, $payment, $patient, $roles;
 
-    public function __construct(Department $department, Room $room, Doctor $doctor, User $user, Appointment $appointment, Payment $payment, Patient $patient)
+    public function __construct(Department $department, Room $room, Doctor $doctor, User $user, Appointment $appointment, Payment $payment, Patient $patient, Role $roles)
 
     {
         $this->department = $department;
@@ -26,6 +27,7 @@ class DepartmentRepository
         $this->appointment = $appointment;
         $this->payment = $payment;
         $this->patient = $patient;
+        $this->role = $roles;
     }
     public function getListDepartments()
     {
@@ -187,5 +189,11 @@ class DepartmentRepository
             ]
         );
         return;
+    }
+
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        dd($roles);
     }
 }

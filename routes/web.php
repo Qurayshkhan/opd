@@ -50,6 +50,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('patient-qoue', [AdminController::class, 'patients'])->name('admin.patient.qoue');
     Route::post('patient-qoue-update', [AdminController::class, 'patientUpdate'])->name('admin.patient.qoue.update');
 
+    // Admistration
+    Route::get('/get-roles', [AdminController::class, 'getRoles'])->name('admin.get.roles');
+    Route::post('/store-roles', [AdminController::class, 'storeRoles'])->name('admin.store.roles');
+    Route::get('/get-permissions', [AdminController::class, 'getPermissions'])->name('admin.get.permissions');
+    Route::post('/store-permission', [AdminController::class, 'storePermission'])->name('admin.store.permission');
 });
 
 Route::group(['prefix' => 'patient', 'middleware' => ['auth']], function () {
@@ -66,4 +71,3 @@ Route::group(['prefix' => 'doctor', 'middleware' => ['auth']], function () {
     Route::post('/appointment-approved/{id}', [AppointmentController::class, 'doctorApprovedAppointment'])->name('doctor.approve.appointment');
     Route::post('/appointment-rejected/{id}', [AppointmentController::class, 'doctorRejectAppointment'])->name('doctor.rejected.appointment');
 });
-

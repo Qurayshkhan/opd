@@ -164,4 +164,9 @@ class DepartmentService
         ];
         return $this->deparmentRepository->updatePatient($data);
     }
+
+    public function getRoles()
+    {
+        return $this->deparmentRepository->getRoles();
+    }
 }

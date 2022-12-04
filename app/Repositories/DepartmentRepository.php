@@ -96,16 +96,19 @@ class DepartmentRepository
             ['id' => $data['id']],
             $user
         );
-
+       $doctorRole = $userId->assignRole('doctor');
+       $doctorRole->givePermissionTo('can_add_transaction');
+       $doctorRole->givePermissionTo('can_view_appointment');
         $doctorData = [
             'room_id' => $data['room_id'],
             'user_id' => $userId->id,
         ];
 
-        $this->doctor->updateOrCreate(
+       $doctor = $this->doctor->updateOrCreate(
             ['user_id' => $data['id']],
             $doctorData
         );
+
         return;
     }
 

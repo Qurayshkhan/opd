@@ -8,8 +8,10 @@ use App\Http\Requests\RoleRequest;
 use App\Http\Requests\RoomRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Patient;
+use App\Models\User;
 use App\Services\DepartmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -144,6 +146,26 @@ class AdminController extends Controller
             );
             return "Add Permission Successfully";
         }
+
+    }
+
+    public function getAssignRoleToUser()
+    {
+        $users = User::with('roles')->get();
+        $roles = Role::all();
+        return view('admin.User_managment.assign-role-to-user', compact('users', 'roles'));
+
+    }
+
+    public function assignRoleToUser(Request $request,  $id)
+    {
+
+        $roleName = Role::find($request->select_role)->first();
+        $user = User::find($id)->first();
+        $user->update();
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $user->assignRole($roleName->name);
+        return "Assign Role Successfully";
 
     }
 }

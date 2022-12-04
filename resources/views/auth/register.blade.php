@@ -51,6 +51,26 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <input type="text"
+                                        class="form-control form-control-user form-control"
+                                        id="exampleFirstName" placeholder="Enter Phone Number" name="phone"
+                                        value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text"
+                                        class="form-control form-control-user form-control"
+                                        id="exampleFirstName" placeholder="Enter Cnic" name="cnic"
+                                        value="{{ old('cnic') }}" required autocomplete="cnic" autofocus>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text"
+                                        class="form-control form-control-user form-control"
+                                        id="exampleFirstName" placeholder="Enter Gender" name="gender"
+                                        value="{{ old('gender') }}" required autocomplete="gender" autofocus>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <input type="email"
                                         class="form-control form-control-user @error('email') is-invalid @enderror"
@@ -62,6 +82,7 @@
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password"
@@ -79,6 +100,7 @@
                                             id="exampleRepeatPassword" name="password_confirmation" placeholder="Repeat Password" required autocomplete="new-password">
                                     </div>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     {{ __('Register') }}
                                 </button>

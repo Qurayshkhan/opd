@@ -41,7 +41,13 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
+                @can('can_view_admistration')
+
                 <div class="sidebar-brand-text mx-3">OPD Admin</div>
+                @endcan
+                @can('can_view_appointment')
+                <div class="sidebar-brand-text mx-3">OPD Doctor</div>
+                @endcan
             </a>
 
             <!-- Divider -->
@@ -55,14 +61,17 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+
 
             <!-- Heading -->
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            @can('can_view_department')
+            <hr class="sidebar-divider">
             <div class="sidebar-heading">
                 Admin
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -78,18 +87,23 @@
                     </div>
                 </div>
             </li>
-
+            @endcan
+            @can('can_view_transaction')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.transaction') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Transactions</span></a>
             </li>
+            @endcan
+            @can('can_view_patient')
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.patient.qoue')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Patients</span></a>
             </li>
+            @endcan
 
+            @can('can_view_admistration')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -100,13 +114,15 @@
                         <h6 class="collapse-header">Adminstration:</h6>
                         <a class="collapse-item" href="{{route('admin.get.roles')}}">Roles</a>
                         <a class="collapse-item" href="{{route('admin.get.permissions')}}">Permission</a>
-                        <a class="collapse-item" href="">Assign Roles</a>
-                        <a class="collapse-item" href="">Assign Permission</a>
+                        <a class="collapse-item" href="{{route('admin.get.assign.role')}}">Assigned Roles</a>
                     </div>
                 </div>
             </li>
+            @endcan
 
-            <!-- Divider -->
+
+            @can('can_view_appointment')
+                   <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
@@ -123,13 +139,15 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Doctor Components:</h6>
-                        <a class="collapse-item" href="{{ route('doctor.appointment.list') }}">Eximed-Un-Eximed</a>
+                        <a class="collapse-item" href="{{ route('doctor.appointment.list') }}">Patients</a>
                     </div>
                 </div>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+            @endcan
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -219,6 +237,8 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Content Row -->
+                    @can('can_view_admistration')
+
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
@@ -305,6 +325,7 @@
                             </div>
                         </div>
                     </div>
+                    @endcan
 
                     <!-- Content Row -->
 

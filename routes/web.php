@@ -54,7 +54,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/get-roles', [AdminController::class, 'getRoles'])->name('admin.get.roles');
     Route::post('/store-roles', [AdminController::class, 'storeRoles'])->name('admin.store.roles');
     Route::get('/get-permissions', [AdminController::class, 'getPermissions'])->name('admin.get.permissions');
+
+
     Route::post('/store-permission', [AdminController::class, 'storePermission'])->name('admin.store.permission');
+
+
+    Route::get('/get-assign-user-role', [AdminController::class, 'getAssignRoleToUser'])->name('admin.get.assign.role');
+
+    Route::post('/store-assign-user-role/{id}', [AdminController::class, 'assignRoleToUser'])->name('admin.assign.role');
 });
 
 Route::group(['prefix' => 'patient', 'middleware' => ['auth']], function () {

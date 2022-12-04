@@ -51,7 +51,7 @@
             <tbody>
                 @foreach ($appointments as $appointment)
                     <tr>
-                        <td>{{ $appointment->patient->user->name ?? '' }}</td>
+                        <td>{{ auth()->user()->name ?? '' }}</td>
                         <td>{{ $appointment->doctor->user->name ?? '' }}</td>
                         <td>{{ $appointment->doctor->room->name ?? '' }}</td>
                         <td>{{ $appointment->doctor->room->department->name ?? '' }}</td>
